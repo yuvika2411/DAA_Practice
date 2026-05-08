@@ -1,0 +1,80 @@
+# Quick Sort
+
+## Problem
+
+Quick Sort is a Divide and Conquer sorting algorithm that selects a pivot element and partitions the array such that:
+
+* elements smaller than pivot come before it
+* elements greater than pivot come after it
+
+Then the same process is applied recursively on subarrays.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+QUICKSORT(A, low, high)
+
+IF low < high
+
+    pivotIndex = PARTITION(A, low, high)
+
+    CALL QUICKSORT(A, low, pivotIndex - 1)
+
+    CALL QUICKSORT(A, pivotIndex + 1, high)
+
+ENDIF
+
+END
+
+
+PARTITION(A, low, high)
+
+SET pivot = A[high]
+
+INITIALIZE i = low - 1
+
+FOR j = low TO high - 1
+
+    IF A[j] < pivot
+
+        i = i + 1
+
+        SWAP A[i] and A[j]
+
+    ENDIF
+
+ENDFOR
+
+SWAP A[i+1] and A[high]
+
+RETURN i + 1
+
+END
+
+---
+
+# Time Complexity
+
+| Case         | Complexity |
+| ------------ | ---------- |
+| Best Case    | O(n log n) |
+| Average Case | O(n log n) |
+| Worst Case   | O(n²)      |
+
+---
+
+# Space Complexity
+
+O(log n)
+---
+
+# Important Points
+
+* Based on Divide and Conquer.
+* Uses pivot element.
+* In-place sorting algorithm.
+* Faster in practice than Merge Sort.
+* Not stable.

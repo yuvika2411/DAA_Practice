@@ -1,0 +1,89 @@
+# Merge Sort
+
+## Problem
+
+Merge Sort is a Divide and Conquer sorting algorithm that divides the array into two halves, sorts them recursively, and then merges the sorted halves.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+MERGESORT(A, low, high)
+
+IF low < high
+
+    COMPUTE mid = (low + high) / 2
+
+    CALL MERGESORT(A, low, mid)
+
+    CALL MERGESORT(A, mid+1, high)
+
+    CALL MERGE(A, low, mid, high)
+
+ENDIF
+
+END
+
+
+MERGE(A, low, mid, high)
+
+CREATE temporary arrays L and R
+
+COPY left half into L
+COPY right half into R
+
+INITIALIZE i = 0
+INITIALIZE j = 0
+INITIALIZE k = low
+
+WHILE i < size of L AND j < size of R
+
+    IF L[i] <= R[j]
+
+        A[k] = L[i]
+        i = i + 1
+
+    ELSE
+
+        A[k] = R[j]
+        j = j + 1
+
+    ENDIF
+
+    k = k + 1
+
+ENDWHILE
+
+COPY remaining elements of L into A
+
+COPY remaining elements of R into A
+
+END
+
+---
+
+# Time Complexity
+
+| Case         | Complexity |
+| ------------ | ---------- |
+| Best Case    | O(n log n) |
+| Average Case | O(n log n) |
+| Worst Case   | O(n log n) |
+
+---
+
+# Space Complexity
+
+O(n)
+
+---
+
+# Important Points
+
+* Based on Divide and Conquer.
+* Stable sorting algorithm.
+* Recursive algorithm.
+* Requires extra memory.
+* Efficient for large datasets.
