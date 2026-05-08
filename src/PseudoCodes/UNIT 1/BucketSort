@@ -1,0 +1,82 @@
+# Bucket Sort
+
+## Problem
+
+Bucket Sort is a sorting algorithm that divides elements into different buckets, sorts each bucket separately, and then combines all buckets to get the final sorted array.
+
+It works efficiently for uniformly distributed data.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+INPUT array A
+INPUT n
+
+CREATE n empty buckets
+
+// Insert elements into buckets
+FOR i = 0 TO n-1
+
+    COMPUTE index = A[i] * n
+
+    INSERT A[i] INTO bucket[index]
+
+ENDFOR
+
+// Sort each bucket
+FOR i = 0 TO n-1
+
+    SORT bucket[i]
+
+ENDFOR
+
+// Merge buckets
+INITIALIZE k = 0
+
+FOR i = 0 TO n-1
+
+    FOR each element x IN bucket[i]
+
+        A[k] = x
+
+        k = k + 1
+
+    ENDFOR
+
+ENDFOR
+
+PRINT sorted array
+
+END
+---
+
+In Bucket Sort:
+
+n = number of elements in the array
+k = number of buckets
+
+# Time Complexity
+
+| Case       | Complexity |
+| ---------- | ---------- |
+| Best Case  | O(n + k)   |
+| Worst Case | O(n²)      |
+
+---
+
+# Space Complexity
+
+O(n + k)
+
+---
+
+# Important Points
+
+* Distributes elements into buckets.
+* Each bucket is sorted separately.
+* Efficient for uniformly distributed data.
+* Uses extra space.
+* Mostly used for floating point numbers.

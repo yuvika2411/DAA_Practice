@@ -1,0 +1,73 @@
+# Tim Sort
+
+## Problem
+
+Tim Sort is a hybrid sorting algorithm derived from Merge Sort and Insertion Sort.
+
+It divides the array into small parts called runs, sorts them using Insertion Sort, and then merges them using Merge Sort.
+
+It is used in Java and Python built-in sorting functions.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+INPUT array A
+INPUT n
+
+SET run = 32
+
+// Sort small subarrays using Insertion Sort
+FOR i = 0 TO n-1 STEP run
+
+    APPLY Insertion Sort on A[i ... min(i+31, n-1)]
+
+ENDFOR
+
+// Merge sorted runs
+FOR size = run TO n-1
+    size = size * 2
+
+    FOR left = 0 TO n-1 STEP 2*size
+
+        mid = left + size - 1
+
+        right = minimum(left + 2*size - 1, n-1)
+
+        MERGE subarrays
+
+    ENDFOR
+
+ENDFOR
+
+PRINT sorted array
+
+END
+
+---
+
+# Time Complexity
+
+| Case         | Complexity |
+| ------------ | ---------- |
+| Best Case    | O(n)       |
+| Average Case | O(n log n) |
+| Worst Case   | O(n log n) |
+
+---
+
+# Space Complexity
+
+O(n)
+
+---
+
+# Important Points
+
+* Hybrid of Merge Sort and Insertion Sort.
+* Used in Python and Java built-in sorting.
+* Stable sorting algorithm.
+* Efficient for real-world data.
+* Uses runs for optimization.
