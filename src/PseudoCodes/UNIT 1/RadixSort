@@ -1,0 +1,99 @@
+# Radix Sort
+
+## Problem
+
+Radix Sort is a non-comparison sorting algorithm that sorts numbers digit by digit from least significant digit to most significant digit.
+
+It uses Counting Sort to sort digits at each place value.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+INPUT array A
+INPUT n
+
+FIND maximum element max
+
+INITIALIZE place = 1
+
+WHILE max / place > 0
+
+    CREATE count array of size 10
+    CREATE output array of size n
+
+    INITIALIZE count array to 0
+
+    // Store frequency of digits
+    FOR i = 0 TO n-1
+
+        digit = (A[i] / place) % 10
+
+        count[digit] = count[digit] + 1
+
+    ENDFOR
+
+    // Compute cumulative count
+    FOR i = 1 TO 9
+
+        count[i] = count[i] + count[i-1]
+
+    ENDFOR
+
+    // Build output array
+    FOR i = n-1 TO 0
+
+        digit = (A[i] / place) % 10
+
+        output[count[digit]-1] = A[i]
+
+        count[digit] = count[digit] - 1
+
+    ENDFOR
+
+    // Copy output into original array
+    FOR i = 0 TO n-1
+
+        A[i] = output[i]
+
+    ENDFOR
+
+    place = place * 10
+
+ENDWHILE
+
+PRINT sorted array
+
+END
+
+---
+
+# Time Complexity
+
+| Case       | Complexity     |
+| ---------- | -------------- |
+| Best Case  | O(d × (n + k)) |
+| Worst Case | O(d × (n + k)) |
+
+Where:
+
+* d = number of digits
+* n = number of elements
+* k = range of digits (0–9)
+
+---
+
+# Space Complexity
+
+O(n + k)
+
+---
+
+# Important Points
+
+* Non-comparison sorting algorithm.
+* Uses Counting Sort internally.
+* Stable sorting algorithm.
+* Efficient for integers with fixed digit size.

@@ -1,0 +1,76 @@
+# Counting Sort
+
+## Problem
+
+Counting Sort is a non-comparison sorting algorithm used to sort integers by counting the frequency of each element.
+
+It works efficiently when the range of elements is small.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+INPUT array A
+INPUT n
+
+FIND maximum element max
+
+CREATE count array of size max + 1
+
+// Store frequency of elements
+FOR i = 0 TO n-1
+
+    count[A[i]] = count[A[i]] + 1
+
+ENDFOR
+
+// Store sorted elements
+INITIALIZE index = 0
+
+FOR i = 0 TO max
+
+    WHILE count[i] > 0
+
+        A[index] = i
+        index = index + 1
+
+        count[i] = count[i] - 1
+
+    ENDWHILE
+
+ENDFOR
+
+PRINT sorted array
+
+END
+
+---
+
+# Time Complexity
+
+| Case       | Complexity |
+| ---------- | ---------- |
+| Best Case  | O(n + k)   |
+| Worst Case | O(n + k)   |
+
+Where:
+
+* n = number of elements
+* k = range of elements
+
+---
+
+# Space Complexity
+O(k)
+
+---
+
+# Important Points
+
+* Non-comparison sorting algorithm.
+* Works only for integers.
+* Efficient for small range values.
+* Stable sorting algorithm.
+* Faster than comparison sorts for limited range data.

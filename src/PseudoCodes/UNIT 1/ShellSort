@@ -1,0 +1,73 @@
+# Shell Sort
+
+## Problem
+
+Shell Sort is an improved version of Insertion Sort that sorts elements far apart first and gradually reduces the gap between elements.
+
+---
+
+# Steps of Shell Sort Algorithm
+
+1. Initialize gap = n/2.
+2. Compare elements separated by gap distance.
+3. Perform insertion sort for elements in each gap group.
+4. Reduce the gap by half.
+5. Repeat the process until gap becomes 1.
+6. Final array becomes sorted.
+
+---
+
+# Pseudo Code
+
+BEGIN
+
+INPUT array A
+INPUT n
+
+FOR gap = n/2 TO gap > 0
+    gap = gap/2
+
+    FOR i = gap TO n-1
+
+        temp = A[i]
+        j = i
+
+        WHILE j >= gap AND A[j-gap] > temp
+
+            A[j] = A[j-gap]
+            j = j-gap
+
+        ENDWHILE
+
+        A[j] = temp
+
+    ENDFOR
+
+ENDFOR
+
+PRINT sorted array
+
+END
+
+---
+
+# Time Complexity
+
+| Case       | Complexity |
+| ---------- | ---------- |
+| Best Case  | O(n log n) |
+| Worst Case | O(n²)      |
+
+---
+
+# Space Complexity
+O(1)
+---
+
+# Important Exam Points
+
+* Shell Sort is based on Insertion Sort.
+* It sorts distant elements first.
+* Gap value decreases gradually.
+* It is an in-place sorting algorithm.
+* It is not a stable sorting algorithm.
