@@ -1,0 +1,74 @@
+# Fractional Knapsack
+
+## Problem
+
+In Fractional Knapsack, objects can be divided into fractions.
+
+The goal is to maximize total profit while keeping total weight within the knapsack capacity.
+
+Objects are selected based on maximum profit/weight ratio.
+
+---
+
+# Algorithm / Pseudo Code
+
+BEGIN
+
+INPUT number of items n
+INPUT weight and profit of each item
+INPUT capacity W
+
+COMPUTE profit/weight ratio for each item
+
+SORT all items in decreasing order of ratio
+
+INITIALIZE totalProfit = 0
+
+FOR each item
+
+    IF item weight <= W
+
+        totalProfit = totalProfit + item profit
+
+        W = W - item weight
+
+    ELSE
+
+        fraction = W / item weight
+
+        totalProfit = totalProfit + (item profit * fraction)
+
+        BREAK
+
+    ENDIF
+
+ENDFOR
+
+PRINT totalProfit
+
+END
+
+---
+
+# Time Complexity
+
+| Case               | Complexity |
+| ------------------ | ---------- |
+| Best/Average/Worst | O(n log n) |
+
+Sorting dominates the complexity.
+
+---
+
+# Space Complexity
+
+O(n)
+---
+
+# Important Points
+
+* Greedy algorithm.
+* Items can be divided.
+* Select items based on maximum profit/weight ratio.
+* Gives optimal solution.
+* Different from 0/1 Knapsack because fractions are allowed.
